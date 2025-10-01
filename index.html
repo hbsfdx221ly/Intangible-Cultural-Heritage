@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非物质文化遗产数据可视化平台 - 2024-12-19</title>
+    <!-- 引入 Tabler CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css">
+    <!-- 引入 Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons-sprite.svg">
+    
+    <!-- 引入自定义轮播图样式 -->
+    <link rel="stylesheet" href="css/carousel.css">
+    <style>
+        /* 轮播标题超链接样式：与下方说明文字一致 */
+        .carousel-caption a.caption-link {
+            color: #F5DEB3;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.8rem;
+            line-height: 1.25;
+        }
+        .carousel-caption a.caption-link:hover {
+            color: #F5DEB3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面容器 -->
+    <div class="page">
+        <!-- 导航栏 -->
+        <header class="navbar navbar-expand-md navbar-light d-print-none">
+            <div class="container-xl">
+                <!-- 品牌标识与标题 -->
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href="#" class="d-flex align-items-center text-reset text-decoration-none">
+                        <span class="me-2" aria-hidden="true">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+                                <rect x="3" y="3" width="18" height="18" rx="4" ry="4" stroke="currentColor" stroke-width="1.8" fill="url(#g)"/>
+                                <path d="M8 8h8v8H8z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                <path d="M6 12h12M12 6v12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>
+                                <defs>
+                                    <linearGradient id="g" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#D2691E" stop-opacity="0.25"/>
+                                        <stop offset="1" stop-color="#A0522D" stop-opacity="0.15"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </span>
+                        <span class="fw-semibold">非物质文化遗产数字交流平台</span>
+                    </a>
+                </h1>
+
+                <!-- 导航菜单 -->
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M12 3l8 4.5l0 7.5l-8 4.5l-8 -4.5l0 -7.5l8 -4.5"/>
+                                    <path d="M12 12l8 -4.5"/>
+                                    <path d="M12 12l0 9"/>
+                                    <path d="M12 12l-8 -4.5"/>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">首页</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M12 3l8 4.5l0 7.5l-8 4.5l-8 -4.5l0 -7.5l8 -4.5"/>
+                                    <path d="M12 12l8 -4.5"/>
+                                    <path d="M12 12l0 9"/>
+                                    <path d="M12 12l-8 -4.5"/>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">清单</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M9 12l2 2l4 -4"/>
+                                    <path d="M21 12c.552 0 1 -.448 1 -1s-.448 -1 -1 -1s-1 .448 -1 1s.448 1 1 1z"/>
+                                    <path d="M3 12c.552 0 1 -.448 1 -1s-.448 -1 -1 -1s-1 .448 -1 1s.448 1 1 1z"/>
+                                    <path d="M12 3c.552 0 1 -.448 1 -1s-.448 -1 -1 -1s-1 .448 -1 1s.448 1 1 1z"/>
+                                    <path d="M12 21c.552 0 1 -.448 1 -1s-.448 -1 -1 -1s-1 .448 -1 1s.448 1 1 1z"/>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">短视频</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">好友</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M3 3h18v18h-18z"/>
+                                    <path d="M9 9h6v6h-6z"/>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">我的</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <span class="dropdown-item-text text-secondary">用户名</span>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-item-text" id="nav-username">未登录</span>
+                        </div>
+                    </div>
+
+                    <!-- 主题设置（打开模态框） -->
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#themeSettingsModal">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"/>
+                                    <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">主题设置</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" id="logout-link">
+                            <span class="nav-link-title">退出登录</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 页面包装器 -->
+        <div class="page-wrapper">
+            <!-- 页面头部 -->
+            <div class="page-header d-print-none">
+                <div class="container-xl">
+                    <div class="row g-2 align-items-center">
+                        <div class="col">
+                            <!-- 页面标题 -->
+                            <h2 class="page-title">
+                                精彩呈现
+                            </h2>
+                        </div>
+                        <!-- 页面头部操作按钮 -->
+                        <div class="col-auto ms-auto d-print-none">
+                            <div class="btn-list">
+                                <a href="#" class="btn btn-primary d-none d-sm-inline-block">
+                                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <line x1="12" y1="5" x2="12" y2="19"/>
+                                        <line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                    展示精彩
+                                </a>
+                                <a href="#" class="btn btn-primary d-sm-none btn-icon" aria-label="创建新报告">
+                                    <svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <line x1="12" y1="5" x2="12" y2="19"/>
+                                        <line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 页面主体内容 -->
+            <div class="page-body">
+                <div class="container-xl">
+                    <!-- 轮播图区域 -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                                        <!-- 轮播指示器 -->
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                        </div>
+                                        
+                                        <!-- 轮播内容 -->
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="img/3a2756a673b540d581e9ce8077b2c3ed.webp" class="d-block w-100 carousel-image" alt="传统工艺">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><a href="papercut.html" class="caption-link">中国剪纸</a></h5>
+                                                    <p>一把剪刀裁出千年祝福，把“福”贴在窗棂，也把年味剪进生活</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="img/5657e57261ad4b2e9b76e5d85242b750.webp" class="d-block w-100 carousel-image" alt="手工艺术">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><a href="papercut.html" class="caption-link">舞龙</a></h5>
+                                                    <p>龙跃杠头，鳞光破夜色，一截龙身一段鼓，翻飞的是人间对丰年的呐喊</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="img/820.jpg" class="d-block w-100 carousel-image" alt="文化传承">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><a href="papercut.html" class="caption-link">竹编技艺</a></h5>
+                                                    <p>青竹作骨，篾丝为脉，经纬指尖翻飞，编出一掌春秋，也盛住人间烟火与山川清欢</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="img/v2-9492c3223b93bcbe6e86faa5b18b1d08_r.jpg" class="d-block w-100 carousel-image" alt="匠心独运">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><a href="papercut.html" class="caption-link">皮影戏</a></h5>
+                                                    <p>白幕后一盏灯，牛皮剪影演春秋，方寸间唱尽人间悲欢</p>
+                                                </div>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="img/zUJ5eBMpPQRx_k3D1vDNJlPkI7_okmATHVuqDzt3Mz5MKGl33CQ-_7ixUcHgXC9-.jpg" class="d-block w-100 carousel-image" alt="艺术精品">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5><a href="papercut.html" class="caption-link">胶东花饽饽</a></h5>
+                                                    <p>一团面、一箸花，蒸出胶东人火红的日子，麦香里升腾着对天地的感恩与对团圆的执念</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 轮播控制按钮 -->
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 其他内容区域 -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主题设置 Modal -->
+    <div class="modal modal-blur fade" id="themeSettingsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">主题设置</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <div class="form-label">颜色模式</div>
+                            <div class="form-selectgroup">
+                                <label class="form-selectgroup-item">
+                                    <input type="radio" name="ts-color-mode" value="light" class="form-selectgroup-input">
+                                    <span class="form-selectgroup-label">光</span>
+                                </label>
+                                <label class="form-selectgroup-item">
+                                    <input type="radio" name="ts-color-mode" value="dark" class="form-selectgroup-input">
+                                    <span class="form-selectgroup-label">黑暗的</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-label">配色方案</div>
+                            <div class="d-flex flex-wrap gap-2" id="ts-color-swatches">
+                                <!-- 颜色小圆点由脚本生成 -->
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-label">字体系列</div>
+                            <div class="space-y-1">
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-font" value="system" checked>
+                                    <span class="form-check-label">无衬线字体</span>
+                                </label>
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-font" value="serif">
+                                    <span class="form-check-label">衬线</span>
+                                </label>
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-font" value="mono">
+                                    <span class="form-check-label">等宽字体</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-label">圆角半径</div>
+                            <div class="space-y-1">
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-radius" value="0">
+                                    <span class="form-check-label">0</span>
+                                </label>
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-radius" value="0.5">
+                                    <span class="form-check-label">0.5</span>
+                                </label>
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-radius" value="1" checked>
+                                    <span class="form-check-label">1</span>
+                                </label>
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-radius" value="1.5">
+                                    <span class="form-check-label">1.5</span>
+                                </label>
+                                <label class="form-check">
+                                    <input class="form-check-input" type="radio" name="ts-radius" value="2">
+                                    <span class="form-check-label">2</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="ts-apply">应用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 Tabler JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    
+    <!-- 引入自定义轮播图脚本 -->
+    <script src="js/carousel.js"></script>
+    <!-- 主题设置脚本 -->
+    <script src="js/theme-settings.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // 进入主页需要登录
+        (function(){
+            if (window.AuthDB) {
+                AuthDB.requireAuth('login.html');
+            }
+            var logout = document.getElementById('logout-link');
+            if (logout && window.AuthDB) {
+                logout.addEventListener('click', function(e){
+                    e.preventDefault();
+                    AuthDB.clearSession();
+                    window.location.replace('login.html');
+                });
+            }
+            var uLabel = document.getElementById('nav-username');
+            if (uLabel && window.AuthDB) {
+                var s = AuthDB.getSession();
+                if (s && s.username) {
+                    uLabel.textContent = s.username;
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

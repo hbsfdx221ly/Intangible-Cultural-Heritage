@@ -1,0 +1,17 @@
+dashboard-project/
+├── index.html
+├── scss/
+│   ├── _variables.scss
+│   ├── _mixins.scss
+│   ├── layout/
+│   │   ├── _navbar.scss
+│   │   ├── _page.scss
+│   │   └── _page-header.scss
+│   ├── ui/
+│   │   ├── _buttons.scss
+│   │   ├── _badges.scss
+│   │   └── _nav.scss
+│   └── main.scss
+├── css/
+│   └── main.css
+└── package.json

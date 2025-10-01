@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 非物质文化遗产数字交流平台</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="css/carousel.css">
+</head>
+<body class="d-flex flex-column">
+    <div class="page page-center">
+        <div class="container-tight py-4">
+            <div class="card card-md">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">创建账户</h2>
+                    <form id="reg-form" autocomplete="on">
+                        <div class="mb-3">
+                            <label class="form-label">账号</label>
+                            <input type="text" class="form-control" id="reg-username" placeholder="账号" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">密码</label>
+                            <input type="password" class="form-control" id="reg-password" placeholder="至少 6 位" minlength="6" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">确认密码</label>
+                            <input type="password" class="form-control" id="reg-password2" placeholder="再次输入密码" minlength="6" required>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary w-100">注册</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center text-secondary mt-3">
+                已有账号？ <a href="login.html">返回登录</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+    (function(){
+        // 已登录则跳回首页
+        if (window.AuthDB && AuthDB.getSession()) {
+            window.location.replace('index.html');
+            return;
+        }
+        const form = document.getElementById('reg-form');
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            const u = document.getElementById('reg-username').value.trim();
+            const p1 = document.getElementById('reg-password').value;
+            const p2 = document.getElementById('reg-password2').value;
+            if (!u || !p1) return;
+            if (p1 !== p2) {
+                alert('两次输入的密码不一致');
+                return;
+            }
+            AuthDB.apiRegister(u, p1)
+            .then(() => {
+                alert('注册成功，请登录');
+                window.location.replace('login.html');
+            })
+            .catch(err => alert(err.message || '注册失败'));
+        });
+    })();
+    </script>
+</body>
+</html>
+
+
